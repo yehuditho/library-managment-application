@@ -1,0 +1,17 @@
+.mat-mdc-card-header {
+justify-content: center;
+}
+.card-container {
+   text-align: center;
+}
+
+.mdc-card__actions{
+display: block;
+}
+
+.details-container {
+    width: 450px;
+    margin: 0 auto;
+    padding: 70px;
+    color: white;
+}

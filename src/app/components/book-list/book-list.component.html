@@ -1,0 +1,43 @@
+<div class="container">
+    <h1> The avialable books are:</h1>
+    <mat-form-field>
+        <input matInput type="text" (keyup)="applyFilter()" [(ngModel)]="filterText" placeholder="Filter by title" />
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- id -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+                Id
+            </th>
+            <td mat-cell *matCellDef="let book" (click)="navigateToBookDetails(book.id)"> {{book.id}} </td>
+        </ng-container>
+
+        <!-- title -->
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+                Title
+            </th>
+            <td mat-cell *matCellDef="let book"> {{book.volumeInfo.title}} </td>
+        </ng-container>
+
+        <!-- subtitle -->
+        <ng-container matColumnDef="subtitle">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+                Subitle
+            </th>
+            <td mat-cell *matCellDef="let book"> {{book.volumeInfo.subtitle}} </td>
+        </ng-container>
+
+        <!-- author -->
+        <ng-container matColumnDef="author">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+                Author
+            </th>
+            <td mat-cell *matCellDef="let book"> {{book.volumeInfo.authors}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <button mat-raised-button class="add-btn" (click)="addBook()">add</button>
+</div>

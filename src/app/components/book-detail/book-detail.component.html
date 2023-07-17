@@ -1,0 +1,22 @@
+<div class="details-container">
+    <mat-card *ngIf="!editMode">
+        <div class="card-container">
+            <mat-card-header>
+                <mat-card-title>Title: {{book.volumeInfo.title}}</mat-card-title>
+                <mat-card-subtitle>Sub title: {{book.volumeInfo.subtitle}}</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <h2>Authors: {{book.volumeInfo.authors}}</h2>
+                <h3>Catalog number: {{book.id}}</h3>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-button (click)="openToEdit()">Edit</button>
+                <button mat-button (click)="deleteBook()">Delete</button>
+                <a href="/book-list" mat-button>back to list</a>
+            </mat-card-actions>
+        </div>
+    </mat-card>
+</div>
+<app-add-edit-book [book]="book" [editMode]="true" *ngIf="editMode"></app-add-edit-book>

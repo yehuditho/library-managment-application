@@ -1,0 +1,9 @@
+.container {
+    width: 450px;
+    margin: 0 auto;
+    padding: 70px;
+}
+
+.add-btn {
+    margin: 10px;
+}
