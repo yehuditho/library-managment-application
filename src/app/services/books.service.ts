@@ -16,7 +16,6 @@ export class BooksService {
   getBooks(searchTerm: string): Observable<any> {
     const url = `${this.apiUrl}?q=${searchTerm}`;
     if (this.bookList.length > 0) {
-      console.log(this.bookList)
       return of(this.bookList)
     }
     return this.http.get<any>(url).pipe(map((res: any) => {
@@ -26,7 +25,6 @@ export class BooksService {
   }
 
   editBook(book: Book) {
-    console.log(book, 'edit')
     const bookIndex = this.bookList.findIndex(x => x.id === book.id);
     this.bookList[bookIndex] = book
     return of('success');
@@ -34,7 +32,6 @@ export class BooksService {
 
   addBook(book: Book) {
     book.id = (this.bookList.length + 1).toString()
-    console.log(book)
     this.bookList.push(book);
     return of('success');
   }

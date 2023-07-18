@@ -25,7 +25,6 @@ export class AddEditBookComponent implements OnInit {
 
   saveBook() {
     var bookDetails = this.bookForm.value;
-    console.log(this.bookForm.value)
     var book: Book = {
       id: this.book.id,
       volumeInfo: {
@@ -36,7 +35,6 @@ export class AddEditBookComponent implements OnInit {
       }
 
     };
-    console.log(book, 'save')
     if (!this.book.id) {
       this.bookService.addBook(book).subscribe(res => {
         alert('Successfully added');
