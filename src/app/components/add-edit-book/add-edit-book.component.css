@@ -3,3 +3,18 @@
     margin: 0 auto;
     padding: 50px;
 }
+
+.mat-mdc-raised-button:disabled  {
+    background-color: #4a4a4a !important;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+button{
+    width: 50%;
+    margin: 0 auto;
+}

@@ -3,28 +3,30 @@
         <h1 *ngSwitchCase="true">Edit book details</h1>
         <h1 *ngSwitchCase="false">Enter the new book Deatils</h1>
     </div>
-    <form [formGroup]="bookForm" (ngSubmit)="saveBook()">
-        <mat-form-field>
-            <mat-label>Title</mat-label>
-            <input matInput placeholder="Enter the book title" formControlName="title" />
-            <div *ngIf="bookForm.controls['title'].invalid && bookForm.controls['title'].touched">
-                <div *ngIf="bookForm.controls['title'].hasError('required')">Title is required.</div>
-            </div>
-        </mat-form-field>
+    <div class="form-wrapper">
+        <form [formGroup]="bookForm" (ngSubmit)="saveBook()">
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="Enter the book title" formControlName="title" />
+                <div *ngIf="bookForm.controls['title'].invalid && bookForm.controls['title'].touched">
+                    <div *ngIf="bookForm.controls['title'].hasError('required')">Title is required.</div>
+                </div>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Subtitle</mat-label>
+                <input matInput placeholder="Enter the book title" formControlName="subtitle" />
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Authors</mat-label>
+                <input matInput type="text" placeholder="Enter the authors name" formControlName="authors" />
+                <div *ngIf="bookForm.controls['authors'].invalid && bookForm.controls['authors'].touched">
+                    <div *ngIf="bookForm.controls['authors'].hasError('required')">Authors is required.</div>
+                </div>
+            </mat-form-field>
+            <button mat-raised-button [disabled]="bookForm.invalid">Save</button>
+        </form>
+    </div>
 
-        <mat-form-field>
-            <mat-label>Subtitle</mat-label>
-            <input matInput placeholder="Enter the book title" formControlName="subtitle" />
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>Authors</mat-label>
-            <input matInput type="text" placeholder="Enter the authors name" formControlName="authors" />
-            <div *ngIf="bookForm.controls['authors'].invalid && bookForm.controls['authors'].touched">
-                <div *ngIf="bookForm.controls['authors'].hasError('required')">Authors is required.</div>
-            </div>
-        </mat-form-field>
-
-        <button mat-raised-button [disabled]="bookForm.invalid">Save</button>
-    </form>
 </div>
